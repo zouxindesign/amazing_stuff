@@ -1,29 +1,43 @@
 <template>
     <div class="movie_menu">
-        <el-row :gutter="1">
-            <el-col :xs="8" ><div class="grid-content bg-purple-light" >
-              <!-- {{$store.state.movie_store.movie_menu}} -->
+         <!-- <el-row :gutter="20" >
+            <el-col :span="6" v-for="i in movie_menu_img.data"><div class="grid-content bg-purple">
+                <img :src="i.img_url">
             </div></el-col>
-            <el-col :xs="8" ><div class="grid-content bg-purple">
-
-            </div></el-col>
-            <el-col :xs="8" ><div class="grid-content bg-purple-light">
-
-            </div></el-col>
-          </el-row>          
+           
+          </el-row>  -->
+          <el-row>
+              <el-col :span="6" v-for="i in movie_menu_img.data"><div class="grid-content bg-purple"><img :src="i.img_url"></div></el-col>
+          </el-row> 
     </div>
   
   </template>
   
   <script>
   
+  import {mapState} from 'vuex'
   export default {
+    created(){
+      // getall();
+    },
     data() {
         return {
+          
         };
       },
-      methods: {
+    computed:{
+      ...mapState({
+        movie_menu_img: state => state.movie_store.movie_menu_img
+      })
+    },
+    mounted(){
+      this.$store.dispatch('load_movie_menu_img')
+    },
+    methods:{
+      getall(){
+        console.log(this.movie_menu_img)
       }
+    }
   }
   </script>
   
@@ -31,22 +45,13 @@
   <style scoped>
     .movie_menu{
       padding-top: 16px;
+      overflow: auto;
     }
     .el-col {
       border-radius: 4px;
     }
-    .bg-purple-dark {
-      background: #99a9bf;
-    }
-    .bg-purple {
-      background: #d3dce6;
-    }
-    .bg-purple-light {
-      background: #e5e9f2;
-    }
-    .grid-content {
-      border-radius: 4px;
-      min-height: 36px;
+    .bg-purple img {
+      width: 160px;
     }
   </style>
   

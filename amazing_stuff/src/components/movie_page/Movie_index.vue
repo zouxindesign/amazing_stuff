@@ -16,8 +16,6 @@
             <el-menu-item index="3">美剧</el-menu-item>
             <el-menu-item index="4">国产剧</el-menu-item>
             <el-menu-item index="5">综艺</el-menu-item>
-            <el-menu-item index="6">西部世界</el-menu-item>
-            <el-menu-item index="7" disabled>待添加</el-menu-item>
           </el-menu>
           <movieMenu/>
         </div>
