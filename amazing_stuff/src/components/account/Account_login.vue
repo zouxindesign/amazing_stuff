@@ -120,7 +120,7 @@ export default {
       this.$refs.LoginForm.resetFields()
     },
     toregin () {
-      this.$router.push('/regin')
+      this.$router.push('/home_page')
     }
   }
 }
@@ -129,7 +129,7 @@ export default {
 <style scoped>
 .login-form {
   margin: 20px auto;
-  width: 310px;
+  width: 1rem;
   background: #fff;
   box-shadow: 0 0 35px #B4BCCC;
   padding: 30px 30px 0 30px;

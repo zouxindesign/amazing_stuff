@@ -22,6 +22,13 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  // const px2remLoader  = {
+  //   loader: 'px2rem-loader',
+  //   options:{
+  //     remUnit:
+  //   }
+  // }
+
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
