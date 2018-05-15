@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './assets/js/key' //引入bmob js-sdk
 import 'lib-flexible/flexible.js'
 import store from './store'
+import axios from 'axios'
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false

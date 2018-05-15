@@ -1,15 +1,19 @@
 export default {
     state:{
-        show:false,
-        account_username:'a',
-        account_info:{
-            age:'12',
-            height:12
+        movie_menu_img:{
         }
+    },
+    getter:{
+
     },
     mutations:{
         change(state){
             state.account_username='b'
+        }
+    },
+    actions:{
+        load_movie_menu_img(){
+            axios.get('../../static/movie_menu_imglists/movie_menu_imglists.json')
         }
     }
 }
