@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-        {{$store.state.account.account_username}}
+        {{$store.state.account_store.account_username}}
         <button @click='click1'>click</button>
   </div>
 
