@@ -10,22 +10,4 @@ export default new vuex.Store({
         account: account_store
         //other:other 其他组件
     }
-    // state: {
-    //     test01: {
-    //       name: 'Wise Wrong'
-    //     },
-    //     test02: {
-    //       tell: '12312345678'
-    //     }
-    //   },
-    //   actions: {
-    //     // 封装一个 ajax 方法
-    //     saveForm (context) {
-    //       axios({
-    //         method: 'post',
-    //         url: '/user',
-    //         data: context.state.test02
-    //       })
-    //     }
-    // }
 })
