@@ -10,14 +10,14 @@
           </el-carousel>
         </div>
         <div class="movie_banner">
-          <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1">电影</el-menu-item>
-            <el-menu-item index="2">韩剧</el-menu-item>
-            <el-menu-item index="3">美剧</el-menu-item>
-            <el-menu-item index="4">国产剧</el-menu-item>
-            <el-menu-item index="5">综艺</el-menu-item>
+          <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+            <el-menu-item index="1" @click="tab_change(child1)">电影</el-menu-item>
+            <el-menu-item index="2" @click="tab_change(child2)">韩剧</el-menu-item>
+            <el-menu-item index="3" @click="tab_change(child3)">美剧</el-menu-item>
+            <el-menu-item index="4" @click="tab_change(child4)">国产剧</el-menu-item>
+            <el-menu-item index="5" @click="tab_change(child5)">综艺</el-menu-item>
           </el-menu>
-          <movieMenu/>
+          <div :is="currentView"></div>
         </div>
   </div>
 
@@ -25,20 +25,34 @@
 
 <script>
 
-import movieMenu from './Movie_menu'
+import child1 from './Movie_menu'
+import child2 from './Movie_menu'
+import child3 from './Movie_menu'
+import child4 from './Movie_menu'
+import child5 from './Movie_menu'
 export default {
   components:{
-    movieMenu,
+    child1,
+    child2,
+    child3,
+    child4,
+    child5,
   },
   data() {
       return {
+        child1: 'child1',
+        child2: 'child2',
+        child3: 'child3',
+        child4: 'child4',
+        child5: 'child5',
+        currentView:'child1',
         activeIndex: '1',
         img_lists:[]
       };
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+      tab_change(tab_item){
+        this.currentView = tab_item;
       }
     }
 }

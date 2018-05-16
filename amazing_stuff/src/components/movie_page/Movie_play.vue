@@ -16,7 +16,11 @@
   import {mapState} from 'vuex'
   export default {
     created(){
-      // getall();
+      // console.log(this.$route.params)
+      this.get_current_movie()
+    },
+    mounted(){
+      this.get_current_movie()
     },
     data() {
         return {
@@ -32,9 +36,13 @@
       this.$store.dispatch('load_movie_menu_img')
     },
     methods:{
-      go_this(){
-        const currentImgId = event.currentTarget.alt;
-        this.$router.push({path:'/Movie_play', name: 'Movie_play',params:{playId:currentImgId}})
+      get_current_movie(){
+        console.log(
+          // this.movie_menu_img.data.find(this.$route.params.playId => {
+          //   return d;ewqA
+          // })
+          // this.movie_menu_img.data.find((this.$route.params))
+        ) 
       }
     }
   }

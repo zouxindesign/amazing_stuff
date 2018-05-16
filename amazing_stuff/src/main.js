@@ -9,8 +9,15 @@ import './assets/js/key' //引入bmob js-sdk
 import 'lib-flexible/flexible.js'
 import store from './store'
 import axios from 'axios'
+import VueLazyload from 'vue-lazyload'  //引入这个懒加载插件
 
 Vue.use(ElementUI);
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'static/error.png',
+  loading: '加载失败',
+  attempt: 1
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
