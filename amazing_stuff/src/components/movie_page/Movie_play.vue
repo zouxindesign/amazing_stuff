@@ -3,7 +3,7 @@
           <el-row>
               <el-col :span="6" v-for="i in movie_menu_img.data" >
                 <div class="grid-content bg-purple">
-                  <img :src="i.img_url" :alt="i.id" @click="go_this($event)">
+                  <img :src="i.img_url">
                 </div>
               </el-col>
           </el-row> 
@@ -20,7 +20,7 @@
       this.get_current_movie()
     },
     mounted(){
-      this.get_current_movie()
+      this.get()
     },
     data() {
         return {
@@ -37,12 +37,11 @@
     },
     methods:{
       get_current_movie(){
-        console.log(
-          // this.movie_menu_img.data.find(this.$route.params.playId => {
-          //   return d;ewqA
-          // })
-          // this.movie_menu_img.data.find((this.$route.params))
-        ) 
+          this.movie_menu_img.data.find((item)=>{
+            if(item.id=this.$route.params.playId){
+              return(console.log(item))
+            }
+          })
       }
     }
   }
