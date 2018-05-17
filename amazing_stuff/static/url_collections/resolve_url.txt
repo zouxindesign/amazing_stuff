@@ -3,7 +3,7 @@ m3u8:http://api.123zx.net/m3u8/play.html?id=
 http://zxt38.top/Yunflv/m3u8.php?v=
 http://jx.kqk8.com/xxx/4k.php?url=https://www3.laqddc.com/hls/2018/05/14/Vw6MFiAB/playlist.m3u8
 http://jx.kqk8.com/xxx/4k.php?url=https://v.qq.com/x/cover/1egcxh1l6d8jyt1/i0026pfdu31.html
-
+https://api.ipengfu.com/ckplayerx/m3u8.php
 
 http://api.wlzhan.com/sudu/?url=
 http://api.wlzhan.com/sudu/?url=
