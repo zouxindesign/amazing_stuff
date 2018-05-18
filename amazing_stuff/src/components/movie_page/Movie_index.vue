@@ -20,6 +20,7 @@
           <div :is="currentView"></div>
         </div>
 
+
   </div>
 
 </template>
@@ -33,6 +34,7 @@ import child3 from './Movie_menu'
 import child4 from './Movie_menu'
 import child5 from './Movie_menu'
 import searchhead from '../header/header'
+// import isshaked from '../../assets/js/isShake.js'
 export default {
   components:{
     child1,
@@ -60,6 +62,7 @@ export default {
       })
     },
     created(){
+      // var isisshaked = isshaked.isshaked;
       this.$store.dispatch('load_movie_menu_img')
     },
     mounted(){
@@ -117,6 +120,5 @@ export default {
   }
   .movie_banner ul{
     box-shadow: 4px 4px 8px 0px #c0c4cc;
-    margin-bottom: 16px;
   }
 </style>

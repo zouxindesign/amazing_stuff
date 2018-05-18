@@ -1,5 +1,5 @@
 <template>
-    <div class="movie_menu">
+    <div class="movie_play">
 
      <iframe scrolling="no" allowtransparency="true" frameborder="0" 
      src="https://api.ipengfu.com/ckplayerx/m3u8.php?url=https://cdn.kuyunbo.club/20180501/1dRjYeUp/index.m3u8"
@@ -49,6 +49,9 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-
+    .movie_play{
+      width: 100%;
+      height: 375px
+    }
   </style>
   
