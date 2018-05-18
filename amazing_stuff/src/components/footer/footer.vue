@@ -27,10 +27,12 @@ export default {
 .footer{
   position: fixed;
   bottom: 0;
-  width: 96%;
+  width: 100%;
   height: 50px;
   line-height: 50px;
   z-index: 1000;
+  background-color: #6FE4ED;
+  color: #fff;
 }
 .tab{
     display: flex;

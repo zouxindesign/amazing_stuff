@@ -10,7 +10,7 @@ import 'lib-flexible/flexible.js'
 import store from './store'
 import axios from 'axios'
 import VueLazyload from 'vue-lazyload'  //引入这个懒加载插件
-
+import 'swiper/dist/css/swiper.css';
 
 Vue.use(ElementUI);
 Vue.use(VueLazyload, {

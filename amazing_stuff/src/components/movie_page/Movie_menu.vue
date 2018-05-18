@@ -1,12 +1,14 @@
 <template>
     <div class="movie_menu">
-          <el-row>
-              <el-col :span="6" v-for="i in movie_menu_img.data" >
-                <div class="grid-content bg-purple">
-                  <img :src="i.img_url" :alt="i.id" @click="go_this($event)">
+        
+          <el-row :gutter="10" >
+              <el-col :span="6" v-for="i in movie_menu_img.data">
+                <div class="item_card">
+                  <img :src="i.img_url" :alt="i.id" @click="go_this($event)" width="100%" height="100%">
                 </div>
               </el-col>
           </el-row> 
+        </el-card>
     </div>
   
   </template>
@@ -15,12 +17,8 @@
   
   import {mapState} from 'vuex'
   export default {
-    created(){
-      // getall();
-    },
     data() {
         return {
-          // i:'s'
         };
       },
     computed:{
@@ -44,13 +42,19 @@
   <style scoped>
     .movie_menu{
       padding-top: 16px;
-      overflow: auto;
+      overflow: hidden;
+      padding: 16px;
     }
     .el-col {
       border-radius: 4px;
     }
-    .bg-purple img {
-      width: 160px;
+    .item_card img {
+      border-radius: 8px;
+    }
+    .item_card{
+      border-radius: 8px;
+      box-shadow: 4px 4px 8px 0px #c0c4cc;
+      margin-bottom: 16px;
     }
   </style>
   
