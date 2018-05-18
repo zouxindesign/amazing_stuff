@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>小美好</title>
     <script src="./static/bomb/bmob-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
       body{
         margin: 0;
@@ -15,5 +14,29 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script type="text/javascript" language="javascript" src="Scripts/swfobject.js"></script>
+<script language="javascript">
+  function load(){
+    var swfVersionStr = "10.0.0";
+    var params = {};
+    params.quality = "high";
+    params.allowfullscreen = "false";
+    params.allowscriptaccess = "always";
+    //params.wmode = "transparent";
+    swfobject.embedSWF("flash/MainPage.swf", "FlashID", "597", "416", swfVersionStr,params);
+  }
+  //调用flash中的方法，"swfId"为html页中swf的id
+  function setValue(o) {
+    thisMovie("FlashID").getIds(o);
+  }
+  //搭建js与flash互通的环境
+  function thisMovie(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+     return window[movieName];
+    } else {
+     return document[movieName];
+    }
+  }
+</script>
   </body>
 </html>

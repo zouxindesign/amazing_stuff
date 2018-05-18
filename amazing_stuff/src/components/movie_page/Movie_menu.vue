@@ -34,7 +34,7 @@
     methods:{
       go_this(){
         const currentImgId = event.currentTarget.alt;
-        this.$router.push({path:'/Movie_play', name: 'Movie_play',params:{playId:currentImgId}})
+        this.$router.push({path:'/Movie_play', name: 'Movie_play',query:{playId:currentImgId}})
       }
     }
   }
