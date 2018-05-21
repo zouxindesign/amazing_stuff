@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Account_login from '@/components/account/Account_login'
 import Home_page from '@/components/home_page/Home_page'
-import Movie_index from '@/components/movie_page/Movie_index'
+import Menu_index from '@/components/menu_index/Menu_index'
 import Movie_play from '@/components/movie_page/Movie_play'
 
 Vue.use(Router)
@@ -20,9 +20,9 @@ export default new Router({
       component: Home_page
     },
     {
-      path: '/Movie_index',
-      name: 'Movie_index',
-      component: Movie_index
+      path: '/Menu_index',
+      name: 'Menu_index',
+      component: Menu_index
     },
     {
       path: '/Movie_play',

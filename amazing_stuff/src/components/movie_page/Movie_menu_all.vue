@@ -3,7 +3,7 @@
     <!-- 卡片 start-->
     <div class=title_tag1 >最新电影</div>
     <div v-for="item in movie_menu_img.data">
-      <div class="movie_card_menu" @click="go_to_play(item.id)">
+      <div class="movie_card_menu">
 
         <div class="menu_card_img">
           <img :src="item.img_url" />
@@ -43,8 +43,9 @@
       this.$store.dispatch('load_movie_menu_img')
     },
     methods:{
-      go_to_play(id){
-        console.log(id)
+      go_this(){
+        const currentImgId = event.currentTarget.alt;
+        this.$router.push({path:'/Movie_play', name: 'Movie_play',query:{playId:currentImgId}})
       }
     }
   }

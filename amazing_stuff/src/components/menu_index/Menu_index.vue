@@ -1,15 +1,6 @@
 <template>
   <div class="index">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" v-for="i in movie_menu_img.data" >
-                  <img :src="i.img_url" :alt="i.id" width="100%">
-              </div>
-            </div>
-            <div class="swiper-scrollbar"></div>
-          </div>
-        
-        <div class="movie_banner">
+      <!-- <div class="movie_banner">
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
             <el-menu-item index="1" @click="tab_change(child1)" class="tab_font">电影</el-menu-item>
             <el-menu-item index="2" @click="tab_change(child2)" class="tab_font">韩剧</el-menu-item>
@@ -17,10 +8,34 @@
             <el-menu-item index="4" @click="tab_change(child4)" class="tab_font">国产剧</el-menu-item>
             <el-menu-item index="5" @click="tab_change(child5)" class="tab_font">综艺</el-menu-item>
           </el-menu>
-          <div :is="currentView"></div>
+
+        </div> -->
+        <searchhead />
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="i in movie_menu_img.data" >
+                  <img :src="i.img_url" :alt="i.id" width="100%">
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
         </div>
 
 
+        <div class="movie_menu_icons">
+          <div  @click="tab_change(child1)">
+            <i class="iconfont icon-dianying"></i>
+            <span class="icon_title">电影</span>
+          </div>
+          <div  @click="tab_change(child2)">
+            <i class="iconfont icon-dianshiju"></i>
+            <span>电视剧</span>
+          </div>
+          <div @click="tab_change(child3)">
+            <i class="iconfont icon-zongyi"></i>
+            <span>综艺</span>
+          </div>
+        </div> 
+        <div :is="currentView"></div>
   </div>
 
 </template>
@@ -28,11 +43,9 @@
 <script>
 import {mapState} from 'vuex'
 import Swiper from 'swiper';
-import child1 from './Movie_menu'
-import child2 from './Movie_menu'
-import child3 from './Movie_menu'
-import child4 from './Movie_menu'
-import child5 from './Movie_menu'
+import child1 from '../movie_page/Movie_menu'
+import child2 from '../movie_page/Movie_menu'
+import child3 from '../movie_page/Movie_menu'
 import searchhead from '../header/header'
 // import isshaked from '../../assets/js/isShake.js'
 export default {
@@ -40,8 +53,6 @@ export default {
     child1,
     child2,
     child3,
-    child4,
-    child5,
     searchhead,
   },
   data() {
@@ -49,8 +60,6 @@ export default {
         child1: 'child1',
         child2: 'child2',
         child3: 'child3',
-        child4: 'child4',
-        child5: 'child5',
         currentView:'child1',
         activeIndex: '1',
         img_lists:[]
@@ -89,6 +98,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .el-select .el-input {
+    width: 130px;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+  }
+  .movie_menu_icons{
+    display: flex;
+    justify-content:space-around;
+    margin: 0 8% 0 8%;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px #d3d3d3;
+  }
   .swiper-container{
     width: 100%;
     height: 240px;
@@ -120,5 +145,9 @@ export default {
   }
   .movie_banner ul{
     box-shadow: 4px 4px 8px 0px #c0c4cc;
+  }
+  .iconfont{
+    color: #314369;
+    font-size: 50px;
   }
 </style>
