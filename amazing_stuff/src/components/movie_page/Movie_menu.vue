@@ -39,12 +39,13 @@
         movie_menu_img: state => state.movie_store.movie_menu_img
       })
     },
-    mounted(){
+    created(){
       this.$store.dispatch('load_movie_menu_img')
     },
     methods:{
       go_to_play(id){
-        console.log(id)
+        this.$router.push({path:'/Movie_play', name: 'Movie_play',query:{playId:id}})
+        // console.log(this.movie_menu_img)
       }
     }
   }
