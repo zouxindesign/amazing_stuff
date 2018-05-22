@@ -44,8 +44,8 @@
 import {mapState} from 'vuex'
 import Swiper from 'swiper';
 import child1 from '../movie_page/Movie_menu'
-import child2 from '../movie_page/Movie_menu'
-import child3 from '../movie_page/Movie_menu'
+import child2 from '../movie_page/Tv_menu.vue'
+import child3 from '../movie_page/Show_menu.vue'
 import searchhead from '../header/header'
 // import isshaked from '../../assets/js/isShake.js'
 export default {

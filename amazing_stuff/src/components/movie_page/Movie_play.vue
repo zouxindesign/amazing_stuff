@@ -2,31 +2,46 @@
   <div>
     <searchhead />
     <div class="movie_play">
-      <div>正在播放：{{current_play_film.name}}</div>
-      <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://api.ipengfu.com/ckplayerx/m3u8.php?url=https://cdn.kuyunbo.club/20180501/1dRjYeUp/index.m3u8"
-        width="100%" allowfullscreen="true" height="100%"></iframe>
+      <div class="play_now_font">正在播放：{{current_play_film.name}}</div>
+      <!-- <iframe scrolling="no" allowtransparency="true" frameborder="0" src="http://vd3.bdstatic.com/mda-iei7mc06k5ubya3p/hd/mda-iei7mc06k5ubya3p.mp4"
+        width="100%" allowfullscreen="true" height="100%"></iframe> -->
+
+        <iframe  border="0" :src="movie_url" width="100%" height="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" scrolling="no" vspale="0" noresize="" allowfullscreen="true" allowtransparency="true"></iframe>
     </div>
 
     <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="在线播放线路" name="first">
-          <span class="check_play_route_button" style="border: 1px solid #d3d3d3">线路一</span>
-          <span class="check_play_route_button" style="border: 1px solid #d3d3d3">线路一</span>
-          <span class="check_play_route_button" style="border: 1px solid #d3d3d3">线路一</span>
+          <span class="check_play_route_button" v-for="item in play_url_ids"
+          style="border: 1px solid #d3d3d3" @click="check_play_url(item.url)">线路{{item.num}}</span>
         </el-tab-pane>
+
         <el-tab-pane label="电影下载地址" name="second">
           <div>百度云：</div>
-          <div>saasas</div>
-          <div>百度云：</div>
-          <div>saasas</div>
+
+          <a  target="_blank" :href="play_url_ids[0].baiduyun.url">
+          <span class="check_play_route_button baiduyun_button"
+          style="border: 1px solid #d3d3d3;">密码：{{play_url_ids[0].baiduyun.code}}</span>
+        </a>
         </el-tab-pane>
+
         <el-tab-pane label="剧情介绍" name="third">
           <span>
-            《匿名者》剧情简介：故事将聚焦欧文饰演的侦探生活在没有隐私，满是匿名举报者的世界。那里的一切公开透明，任何行为都在政府窥探、监管之下。然而，当侦探发现塞弗里德饰演的年轻女子，在警察的监管下隐于无形后。侦探真正开始思考，政府的行径是否才真的是在犯罪。
+            {{current_play_film.introduce}}
           </span>
         </el-tab-pane>
       </el-tabs>
 
-      <movieMenu />
+      <div v-show="current_play_film.type =='movie'">
+          <movieMenu />
+      </div>
+      
+      <div v-show="current_play_film.type =='tv'">
+          <tvMenu />
+      </div>
+      
+      <div v-show="current_play_film.type =='show'">
+        <showMenu />
+      </div>
   </div>
 </template>
 
@@ -36,16 +51,23 @@
   import {mapState} from 'vuex'
   import searchhead from '../header/header'
   import movieMenu from './Movie_menu.vue'
+  import tvMenu from './Tv_menu.vue'
+  import showMenu from './Show_menu.vue'
   export default {
     components:{
       searchhead,
       movieMenu,
+      showMenu,
+      tvMenu
     },
 
     data() {
         return {
           current_play_film:'',
-          activeName: 'first'
+          activeName: 'first',
+          show_recommed:'',
+          play_url_ids:[],
+          movie_url:''
         };
     },
     computed:{
@@ -55,16 +77,36 @@
     },
     created(){
       this.$store.dispatch('load_movie_menu_img')
+      this.get_current_movie();
+      // this.movie_url = this.play_url_ids[0]
     },
-
+    mounted(){
+      // this.get_current_movie();
+    },
     methods:{
+      check_play_url(url){
+       this.movie_url = url;
+      },
+      handleClick(){
+        // console.log(this.movie_menu_img.data)
+      },
       get_current_movie(){
+        setTimeout(() => {
           this.movie_menu_img.data.find((item)=>{
-            if(item.id=this.$route.query.playId){
-              this.current_play_film = item
+            if(item.id == this.$route.query.playId){
+              this.current_play_film = item;
+              for( item in this.current_play_film.play_url[0]){
+                let this_url = {
+                  "num":item,
+                  "url": this.current_play_film.play_url[0][item],
+                  "baiduyun":this.current_play_film.baiduyun_url[0],
+                  "vip_url":this.current_play_film.vip_url[0][item]
+                }
+                this.play_url_ids.push(this_url);
+              }
             }
           })
-          console.log(this.current_play_film);
+        }, 0);
       }
     }
   }
@@ -72,6 +114,10 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
+    .play_now_font{
+      padding: 15px;
+      color: #314369;
+    }
     .movie_play{
       width: 95%;
       height: 375px;
@@ -86,8 +132,17 @@
       display: inline-block;
       text-align: center;
     }
+    .baiduyun_button{
+      width: 200px;
+      height: 50px;
+      border-radius: 8px;
+      line-height: 50px;
+      margin: 15px;
+      display: inline-block;
+      text-align: center;
+    }
     .el-tabs{
-      margin: 60px 15px;
+      margin: 120px 15px;
     }
     .el-tab-pane{
       text-align: left;

@@ -4,6 +4,7 @@ import Account_login from '@/components/account/Account_login'
 import Home_page from '@/components/home_page/Home_page'
 import Menu_index from '@/components/menu_index/Menu_index'
 import Movie_play from '@/components/movie_page/Movie_play'
+import needs from '@/components/add_needs/needs'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/Movie_play',
       name: 'Movie_play',
       component: Movie_play
+    },
+    {
+      path: '/needs',
+      name: 'needs',
+      component: needs
     },
   ]
 })

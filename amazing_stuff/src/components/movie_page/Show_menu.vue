@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- 卡片 start-->
-    <div class=title_tag1 >最新电影</div>
-    <div v-for="item in got_all_moive">
+    <div class=title_tag1 >最新综艺</div>
+    <div v-for="item in got_all_show">
       <div class="movie_card_menu" @click="go_to_play(item.id)">
 
         <div class="menu_card_img">
@@ -32,7 +32,7 @@
   export default {
     data() {
       return {
-        got_all_moive: []
+        got_all_show: []
       };
     },
     computed: {
@@ -42,23 +42,25 @@
     },
     created() {
       this.$store.dispatch('load_movie_menu_img');
-      this.get_all_moive()
+      this.get_all_show()
+
+    },
+    mounted() {
 
     },
     methods: {
-      get_all_moive() {
+        get_all_show() {
         setTimeout(() => {
           let all_data = this.movie_menu_img.data;
           all_data.map((item, key, ary) => {
-            if (ary[key].type == 'movie') {
+            if (ary[key].type == 'show') {
               // console.log(item)
-              this.got_all_moive.push(item);
+              this.got_all_show.push(item);
             }
           })
         }, 0);
       },
       go_to_play(id) {
-        // console.log(id)
         this.$router.push({
           path: '/Movie_play',
           name: 'Movie_play',
