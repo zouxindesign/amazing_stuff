@@ -21,7 +21,7 @@ export default new Router({
       component: Home_page
     },
     {
-      path: '/Menu_index',
+      path: '/',
       name: 'Menu_index',
       component: Menu_index
     },
