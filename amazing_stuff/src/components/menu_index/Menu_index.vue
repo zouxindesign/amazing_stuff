@@ -90,6 +90,7 @@ export default {
     },
   methods: {
       tab_change(tab_item){
+        // console.log(tab_item)
         this.currentView = tab_item;
       }
     }

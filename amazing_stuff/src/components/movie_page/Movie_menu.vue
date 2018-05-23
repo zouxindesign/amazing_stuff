@@ -6,7 +6,7 @@
       <div class="movie_card_menu" @click="go_to_play(item.id)">
 
         <div class="menu_card_img">
-          <img :src="item.img_url" />
+          <img src="http://img.zxh.net.cn/upload/vod/2018-05/15265516856.jpg" />
         </div>
 
         <div class="menu_card_content">
@@ -17,7 +17,6 @@
           </div>
           <div class="menu_card_commet">{{item.introduce}}</div>
         </div>
-
       </div>
     </div>
     <!-- end -->
@@ -109,12 +108,10 @@
       height: 162px;
     }
     .menu_card_commet {
-    font-size: 16px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 20px;
+    overflow: auto;
+    height: 90px;
   }
   </style>
   

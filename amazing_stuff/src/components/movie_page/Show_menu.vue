@@ -111,12 +111,10 @@
       height: 162px;
     }
     .menu_card_commet {
-    font-size: 16px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 20px;
+    overflow: auto;
+    height: 90px;
   }
   </style>
   
