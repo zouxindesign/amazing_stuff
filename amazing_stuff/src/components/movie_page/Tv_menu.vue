@@ -109,7 +109,7 @@
   }
 
   .menu_card_score {
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .menu_card_content {
@@ -120,8 +120,8 @@
   }
 
     .menu_card_commet {
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 16px;
     overflow: auto;
     height: 90px;
   }
