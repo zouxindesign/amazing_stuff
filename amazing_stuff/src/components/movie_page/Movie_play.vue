@@ -1,60 +1,57 @@
 <template>
   <div>
     <searchhead />
-    <div class="movie_play">
+    <div class="movie_play" >
       <div class="play_now_font">正在播放：{{current_play_film.name}}</div>
-      <!-- <iframe scrolling="no" allowtransparency="true" frameborder="0" src="http://vd3.bdstatic.com/mda-iei7mc06k5ubya3p/hd/mda-iei7mc06k5ubya3p.mp4"
-        width="100%" allowfullscreen="true" height="100%"></iframe> -->
-
-        <iframe  border="0" :src="movie_url" width="100%" height="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" scrolling="no" vspale="0" noresize="" allowfullscreen="true" allowtransparency="true"></iframe>
+      <iframe onload="hideImg(this)" ref= "myiframe" id="myiframe" border="0" :src="movie_url" width="100%" height="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0"
+        scrolling="no" vspale="0" noresize="" allowfullscreen="true" allowtransparency="true"></iframe>
     </div>
 
     <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="在线播放线路" name="first">
-          <span class="check_play_route_button" v-for="item in play_url_ids"
-          style="border: 1px solid #d3d3d3" @click="check_play_url(item.url)">线路{{item.num}}</span>
-        </el-tab-pane>
+      <el-tab-pane label="在线播放线路" name="first">
+        <span class="check_play_route_button" v-for="item in play_url_ids" style="border: 1px solid #d3d3d3" @click="check_play_url(item.url)">线路{{item.num}}</span>
+      </el-tab-pane>
 
-        <el-tab-pane label="电影下载地址" name="second">
-          <div>百度云：</div>
+      <el-tab-pane label="电影下载地址" name="second">
+        <div>百度云：</div>
 
-          <a  target="_blank" :href="play_url_ids[0].baiduyun.url">
-          <span class="check_play_route_button baiduyun_button"
-          style="border: 1px solid #d3d3d3;">密码：{{play_url_ids[0].baiduyun.code}}</span>
+        <a target="_blank" :href="play_url_ids[0].baiduyun.url">
+          <span class="check_play_route_button baiduyun_button" style="border: 1px solid #d3d3d3;">密码：{{play_url_ids[0].baiduyun.code}}</span>
         </a>
-        </el-tab-pane>
+      </el-tab-pane>
 
-        <el-tab-pane label="剧情介绍" name="third">
-          <span>
-            {{current_play_film.introduce}}
-          </span>
-        </el-tab-pane>
-      </el-tabs>
+      <el-tab-pane label="剧情介绍" name="third">
+        <span>
+          {{current_play_film.introduce}}
+        </span>
+      </el-tab-pane>
+    </el-tabs>
 
-      <div v-show="current_play_film.type =='movie'">
-          <movieMenu />
-      </div>
-      
-      <div v-show="current_play_film.type =='tv'">
-          <tvMenu />
-      </div>
-      
-      <div v-show="current_play_film.type =='show'">
-        <showMenu />
-      </div>
+    <div v-show="current_play_film.type =='movie'">
+      <movieMenu />
+    </div>
+
+    <div v-show="current_play_film.type =='tv'">
+      <tvMenu />
+    </div>
+
+    <div v-show="current_play_film.type =='show'">
+      <showMenu />
+    </div>
   </div>
 </template>
 
-  
-  <script>
 
-  import {mapState} from 'vuex'
+<script>
+  import {
+    mapState
+  } from 'vuex'
   import searchhead from '../header/header'
   import movieMenu from './Movie_menu.vue'
   import tvMenu from './Tv_menu.vue'
   import showMenu from './Show_menu.vue'
   export default {
-    components:{
+    components: {
       searchhead,
       movieMenu,
       showMenu,
@@ -62,90 +59,107 @@
     },
 
     data() {
-        return {
-          current_play_film:'',
-          activeName: 'first',
-          show_recommed:'',
-          play_url_ids:[],
-          movie_url:''
-        };
+      return {
+        current_play_film: '',
+        activeName: 'first',
+        show_recommed: '',
+        play_url_ids: [],
+        movie_url: '',
+        default_movie_url: ''
+      };
     },
-    computed:{
+    computed: {
       ...mapState({
         movie_menu_img: state => state.movie_store.movie_menu_img
       })
     },
-    created(){
+    created() {
       this.$store.dispatch('load_movie_menu_img')
       this.get_current_movie();
       // this.movie_url = this.play_url_ids[0]
     },
-    mounted(){
-      // this.get_current_movie();
+    mounted() {
+      this.check_play_url();
     },
-    methods:{
-      check_play_url(url){
-       this.movie_url = url;
+    methods: {
+      check_play_url(url) {
+        setTimeout(() => {
+          if (url == '' || url == undefined) {
+            // console.log(JSON.parse(JSON.stringify(this.play_url_ids)))
+            this.movie_url = this.play_url_ids[0].url
+          } else {
+            console.log(url)
+            this.movie_url = url;
+          }
+        }, 0);
       },
-      handleClick(){
+      handleClick() {
         // console.log(this.movie_menu_img.data)
       },
-      get_current_movie(){
+      get_current_movie() {
         setTimeout(() => {
-          this.movie_menu_img.data.find((item)=>{
-            if(item.id == this.$route.query.playId){
+          let playurlids = [];
+          this.movie_menu_img.data.find((item) => {
+            if (item.id == this.$route.query.playId) {
               this.current_play_film = item;
-              for( item in this.current_play_film.play_url[0]){
+              for (item in this.current_play_film.play_url[0]) {
                 let this_url = {
-                  "num":item,
+                  "num": item,
                   "url": this.current_play_film.play_url[0][item],
-                  "baiduyun":this.current_play_film.baiduyun_url[0],
-                  "vip_url":this.current_play_film.vip_url[0][item]
+                  "baiduyun": this.current_play_film.baiduyun_url[0],
+                  "vip_url": this.current_play_film.vip_url[0][item]
                 }
-                this.play_url_ids.push(this_url);
+                playurlids.push(this_url);
               }
             }
           })
+          this.play_url_ids = playurlids;
         }, 0);
       }
     }
   }
-  </script>
-  
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-    .play_now_font{
-      padding: 15px;
-      color: #314369;
-    }
-    .movie_play{
-      width: 95%;
-      height: 375px;
-      margin: 15px auto;
-    }
-    .check_play_route_button{
-      width: 115px;
-      height: 50px;
-      border-radius: 8px;
-      line-height: 50px;
-      margin: 15px;
-      display: inline-block;
-      text-align: center;
-    }
-    .baiduyun_button{
-      width: 200px;
-      height: 50px;
-      border-radius: 8px;
-      line-height: 50px;
-      margin: 15px;
-      display: inline-block;
-      text-align: center;
-    }
-    .el-tabs{
-      margin: 120px 15px;
-    }
-    .el-tab-pane{
-      text-align: left;
-    }
-  </style>
-  
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .play_now_font {
+    padding: 15px;
+    color: #314369;
+  }
+
+  .movie_play {
+    width: 95%;
+    height: 375px;
+    margin: 15px auto;
+  }
+
+  .check_play_route_button {
+    width: 115px;
+    height: 50px;
+    border-radius: 8px;
+    line-height: 50px;
+    margin: 15px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .baiduyun_button {
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    line-height: 50px;
+    margin: 15px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .el-tabs {
+    margin: 120px 15px;
+  }
+
+  .el-tab-pane {
+    text-align: left;
+  }
+
+</style>

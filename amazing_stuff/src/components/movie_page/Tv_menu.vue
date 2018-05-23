@@ -120,12 +120,12 @@
   }
 
   .menu_card_commet {
-    font-size: 12px !important;
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 3 !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    font-size: 16px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
   }
 
 </style>
