@@ -1,95 +1,145 @@
 <template>
-  <div>
-    <!-- 卡片 start-->
-    <div class=title_tag1 >最新电影</div>
-    <div v-for="item in movie_menu_img.data">
-      <div class="movie_card_menu">
-
-        <div class="menu_card_img">
-          <img :src="item.img_url" />
-        </div>
-
-        <div class="menu_card_content">
-          <div class="menu_card_title">评分：</div>
-          <div class="menu_card_score">评分：
-            <span>9.0</span>&emsp;日期：
-            <span>2019-09-11</span>
+    <div>
+        <searchhead />
+      <!-- 卡片 start-->
+    <div>
+      <div class="title_tag1" >
+        <div class="title_tag1_1">动作</div>
+      </div>
+      <div v-for="item in got_all_moive">
+        <div class="movie_card_menu" @click="go_to_play(item.id)">
+  
+          <div class="menu_card_img">
+            <img :src="item.img_url" />
           </div>
-          <div class="menu_card_commet">《匿名者》剧情简介：故事将聚焦欧文饰演的侦探生活在没有隐私，满是匿名举报者的世界。那里的一切公开透明，任何行为都在政府窥探、监管之下。然而，当侦探发现塞弗里德饰演的年轻女子，在警察的监管下隐于无形后。侦探真正开始思考，政府的行径是否才真的是在犯罪。</div>
+  
+          <div class="menu_card_content">
+            <div class="menu_card_title">{{item.name}}</div>
+            <div class="menu_card_score_title">评分：
+              <span class="menu_card_score">{{item.score}}</span>&emsp;日期：
+              <span>{{item.time}}</span>
+            </div>
+            <div class="menu_card_commet">{{item.introduce}}</div>
+          </div>
         </div>
-
       </div>
     </div>
-    <!-- end -->
+      <!-- end -->
+      
+    </div>
+  </template>
+  
     
-  </div>
-</template>
-
-  
   <script>
-  
-  import {mapState} from 'vuex'
-  export default {
-    data() {
+    import {mapState } from 'vuex'
+    import searchhead from '../header/header'
+    export default {
+      components:{
+    searchhead,
+  },
+      data() {
         return {
+          got_all_moive: []
         };
       },
-    computed:{
-      ...mapState({
-        movie_menu_img: state => state.movie_store.movie_menu_img
-      })
-    },
-    mounted(){
-      this.$store.dispatch('load_movie_menu_img')
-    },
-    methods:{
-      go_this(){
-        const currentImgId = event.currentTarget.alt;
-        this.$router.push({path:'/Movie_play', name: 'Movie_play',query:{playId:currentImgId}})
+      computed: {
+        ...mapState({
+          movie_menu_img: state => state.movie_store.movie_menu_img
+        })
+      },
+      created() {
+        this.$store.dispatch('load_movie_menu_img');
+        this.get_all_moive()
+      },
+      methods: {
+        go_to_all(){
+          this.$router.push({
+            path: '/Movie_menu_all',
+            name: 'Movie_menu_all',
+            query: {
+              from: 'movie'
+            }
+          })
+        },
+        get_all_moive() {
+          setTimeout(() => {
+            let all_data = this.movie_menu_img.data;
+            all_data.map((item, key, ary) => {
+              if (ary[key].type == 'movie') {
+                this.got_all_moive.push(item);
+              }
+            })
+          }, 0);
+        },
+        go_to_play(id) {
+          // console.log(id)
+          this.$router.push({
+            path: '/Movie_play',
+            name: 'Movie_play',
+            query: {
+              playId: id
+            }
+          })
+        }
+  
       }
     }
-  }
+  
   </script>
   
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-    .movie_card_menu{
-      margin: 15px;
-      border: 1px solid #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 10px 10px 25px #d3d3d3;
-    }
-    .title_tag1{
-      color: #29395D;
-      font-size: 32px;
-      text-align: left;
-      margin: 15px;
-    }
-    .menu_card_img img{
-      width: 240px;
-      height: 180px;
-    }
-    .menu_card_img{
-      float: left;
-    }
-    .menu_card_title{
-      font-size: 30px;
-    }
-    .menu_card_score{
-      font-size: 12px;
-    }
-    .menu_card_content{
-      color: #29395D;
-      text-align: left;
-      margin: 5px 5px 5px 260px ;
-      height: 180px;
-    }
-    .menu_card_commet{
-      font-size: 12px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-    }
-  </style>
-  
+    <style scoped>
+      .movie_card_menu {
+        margin: 15px 15px 0 15px;
+        border: 1px solid #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 10px 10px 25px #d3d3d3;
+        padding: 15px;
+      }
+    
+      .title_tag1 {
+        color: #29395D;
+        width: 93%;
+        font-size: 30px;
+        margin: 15px 15px 0 15px;
+        display:  inline-flex;
+        justify-content:space-between
+      }
+    
+      .menu_card_img img {
+        width: 115px;
+        height: 162px;
+      }
+    
+      .menu_card_img {
+        float: left;
+      }
+    
+      .menu_card_title {
+        font-size: 30px;
+      }
+    
+      .menu_card_score {
+        font-size: 20px;
+        font-weight: bold;
+        color: #e09015;
+      }
+    
+      .menu_card_score_title {
+        font-size: 20px;
+      }
+    
+      .menu_card_content {
+        color: #29395D;
+        text-align: left;
+        margin: 0px 0px 0px 130px;
+        height: 162px;
+      }
+    
+      .menu_card_commet {
+        font-size: 16px;
+        line-height: 26px;
+        overflow: auto;
+        height: 100px;
+      }
+    </style>
+    

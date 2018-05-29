@@ -1,15 +1,5 @@
 <template>
   <div class="index">
-      <!-- <div class="movie_banner">
-          <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-            <el-menu-item index="1" @click="tab_change(child1)" class="tab_font">电影</el-menu-item>
-            <el-menu-item index="2" @click="tab_change(child2)" class="tab_font">韩剧</el-menu-item>
-            <el-menu-item index="3" @click="tab_change(child3)" class="tab_font">美剧</el-menu-item>
-            <el-menu-item index="4" @click="tab_change(child4)" class="tab_font">国产剧</el-menu-item>
-            <el-menu-item index="5" @click="tab_change(child5)" class="tab_font">综艺</el-menu-item>
-          </el-menu>
-
-        </div> -->
         <searchhead />
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -117,7 +107,7 @@ export default {
   }
   .swiper-container{
     width: 100%;
-    height: 240px;
+    height: 320px;
   }
   .swiper-slide{
     width: 100%;

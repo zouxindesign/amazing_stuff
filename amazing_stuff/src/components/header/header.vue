@@ -1,5 +1,9 @@
 <template>
     <div class="search_head">
+      <!-- <div class="nav">
+        <div><i class="el-icon-back"></i></div>
+        <div></div>
+      </div> -->
         <el-col :span="24">
           <!-- 输入后匹配输入建议 -->
             <el-autocomplete

@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- 卡片 start-->
-    <div class=title_tag1 >最新综艺</div>
+    <div class=title_tag1 >
+        <div class="title_tag1_1">最新综艺</div>
+        <div class="title_tag1_2">更多&nbsp;<i class="el-icon-arrow-right"></i></div>
+      </div>
     <div v-for="item in got_all_show">
       <div class="movie_card_menu" @click="go_to_play(item.id)">
 
@@ -11,8 +14,8 @@
 
         <div class="menu_card_content">
           <div class="menu_card_title">{{item.name}}</div>
-          <div class="menu_card_score">评分：
-            <span>{{item.score}}</span>&emsp;日期：
+          <div class="menu_card_score_title">评分：
+            <span class="menu_card_score">{{item.score}}</span>&emsp;日期：
             <span>{{item.time}}</span>
           </div>
           <div class="menu_card_commet">{{item.introduce}}</div>
@@ -85,11 +88,12 @@
       box-shadow: 10px 10px 25px #d3d3d3;
       padding: 15px;
     }
-    .title_tag1{
+    .title_tag1 {
       color: #29395D;
-      font-size: 32px;
-      text-align: left;
+      font-size: 30px;
       margin: 15px;
+      display: flex;
+      justify-content:space-between
     }
     .menu_card_img img{
       width: 115px;
@@ -102,7 +106,12 @@
       font-size: 30px;
     }
     .menu_card_score{
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #e09015;
+    }
+    .menu_card_score_title{
+      font-size: 20px;
     }
     .menu_card_content{
       color: #29395D;
@@ -112,9 +121,9 @@
     }
     .menu_card_commet {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 26px;
     overflow: auto;
-    height: 90px;
-  }
+    height: 100px;
+    }
   </style>
   

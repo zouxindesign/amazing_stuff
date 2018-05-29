@@ -3,6 +3,7 @@
         "id" :"1",
         "name":"毕业狂欢夜第一季",
         "type":"tv",
+        "genre":"6",
         "location":"美国",
         "describe":"美剧",
         "score":"9.0",
@@ -36,6 +37,7 @@
         "id" :"2",
         "name":"死侍2",
         "type":"movie",
+        "genre":"3",
         "location":"美国",
         "describe":"动作片",
         "score":"9.0",
@@ -69,6 +71,7 @@
         "id" :"3",
         "name":"极限挑战 第四季",
         "type":"show",
+        "genre":"",
         "location":"中国",
         "describe":"综艺",
         "score":"9.0",
@@ -102,6 +105,7 @@
         "id" :"4",
         "name":"毕业狂欢夜第er季",
         "type":"tv",
+        "genre":"",
         "location":"美国",
         "describe":"美剧",
         "score":"9.0",
@@ -135,6 +139,7 @@
         "id" :"5",
         "name":"死侍er",
         "type":"movie",
+        "genre":"4",
         "location":"美国",
         "describe":"动作片",
         "score":"9.0",
@@ -168,6 +173,7 @@
         "id" :"6",
         "name":"极限挑战 1er",
         "type":"show",
+        "genre":"2",
         "location":"中国",
         "describe":"综艺",
         "score":"9.0",
@@ -201,6 +207,7 @@
         "id" :"61",
         "name":"极dasdasd战 1er",
         "type":"show",
+        "genre":"3",
         "location":"中国",
         "describe":"综艺",
         "score":"9.0",
@@ -216,6 +223,108 @@
                 "2":"http://www.iqiyi.com/v_19rrd44ck4.html",
                 "3":"http://www.iqiyi.com/v_19rrdbwalc.html",
                 "4":"http://www.iqiyi.com/v_19rrd44ck4.html"
+            }
+        ],
+        "vip_url":[
+            {
+                "iqiyi":"http://www.iqiyi.com/v_19rrdbwalc.html"
+            }
+        ],
+        "baiduyun_url":[
+            {
+                "url":"http://www.iqiyi.com/v_19rrd44ck4.html",
+                "code":"01fe"
+            }
+        ]
+    },
+    {   
+        "id" :"7",
+        "name":"死侍3",
+        "type":"movie",
+        "genre":"2",
+        "location":"美国",
+        "describe":"动作片",
+        "score":"9.0",
+        "time":"2018-05-20",
+        "director":"大卫·雷奇 ",
+        "lead":"瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 ",
+        "img_url":"http://img.zxh.net.cn/upload/vod/2018-05/15265516856.jpg",
+        "introduce":"死侍2是由瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 联合主演的动作片，该片2018上映，死侍2被安狐影院 - 最新最全最受欢迎的影视网站收录于动作片栏目，影片主要讲述了福斯在CinemaCon宣布《死侍2》已在开发中，主演瑞安·雷诺兹、导演蒂姆·米勒、编剧略特·里斯&保罗·韦尼克将悉数回归，与死侍颇有渊源的锁链（Cable）一角将出现在续集中。",
+        "latest":"1",
+        "play_url":[
+            {
+                "1":"http://youku.cdn2-youku.com/share/d1e7b08bdb7783ed4fb10abe92c22ffd",
+                "2":"https://xmr.yezisp.com/jx02.php?url=http://vd3.bdstatic.com/mda-iei7mc06k5ubya3p/hd/mda-iei7mc06k5ubya3p.mp4",
+                "3":"http://youku.cdn-56.com/share/379a7ba015d8bf1c70b8add2c287c6fa",
+                "4":"http://zhjiexi.cn/jx.php?url=http://youku163.zuida-bofang.com/20180518/5803_753b7ec9/index.m3u8"
+            }
+        ],
+        "vip_url":[
+            {
+                "iqiyi":"http://www.iqiyi.com/v_19rrdbwalc.html"
+            }
+        ],
+        "baiduyun_url":[
+            {
+                "url":"http://www.iqiyi.com/v_19rrd44ck4.html",
+                "code":"01fe"
+            }
+        ]
+    },
+    {   
+        "id" :"8",
+        "name":"死侍4",
+        "type":"movie",
+        "genre":"1",
+        "location":"美国",
+        "describe":"动作片",
+        "score":"9.0",
+        "time":"2018-05-20",
+        "director":"大卫·雷奇 ",
+        "lead":"瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 ",
+        "img_url":"http://img.zxh.net.cn/upload/vod/2018-05/15265516856.jpg",
+        "introduce":"死侍2是由瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 联合主演的动作片，该片2018上映，死侍2被安狐影院 - 最新最全最受欢迎的影视网站收录于动作片栏目，影片主要讲述了福斯在CinemaCon宣布《死侍2》已在开发中，主演瑞安·雷诺兹、导演蒂姆·米勒、编剧略特·里斯&保罗·韦尼克将悉数回归，与死侍颇有渊源的锁链（Cable）一角将出现在续集中。",
+        "latest":"1",
+        "play_url":[
+            {
+                "1":"http://youku.cdn2-youku.com/share/d1e7b08bdb7783ed4fb10abe92c22ffd",
+                "2":"https://xmr.yezisp.com/jx02.php?url=http://vd3.bdstatic.com/mda-iei7mc06k5ubya3p/hd/mda-iei7mc06k5ubya3p.mp4",
+                "3":"http://youku.cdn-56.com/share/379a7ba015d8bf1c70b8add2c287c6fa",
+                "4":"http://zhjiexi.cn/jx.php?url=http://youku163.zuida-bofang.com/20180518/5803_753b7ec9/index.m3u8"
+            }
+        ],
+        "vip_url":[
+            {
+                "iqiyi":"http://www.iqiyi.com/v_19rrdbwalc.html"
+            }
+        ],
+        "baiduyun_url":[
+            {
+                "url":"http://www.iqiyi.com/v_19rrd44ck4.html",
+                "code":"01fe"
+            }
+        ]
+    },
+    {   
+        "id" :"9",
+        "name":"死侍1",
+        "type":"movie",
+        "genre":"1",
+        "location":"美国",
+        "describe":"动作片",
+        "score":"9.0",
+        "time":"2018-05-20",
+        "director":"大卫·雷奇 ",
+        "lead":"瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 ",
+        "img_url":"http://img.zxh.net.cn/upload/vod/2018-05/15265516856.jpg",
+        "introduce":"死侍2是由瑞安·雷诺兹 乔什·布洛林 莫蕾娜·巴卡林 布里安娜·希德布兰德 联合主演的动作片，该片2018上映，死侍2被安狐影院 - 最新最全最受欢迎的影视网站收录于动作片栏目，影片主要讲述了福斯在CinemaCon宣布《死侍2》已在开发中，主演瑞安·雷诺兹、导演蒂姆·米勒、编剧略特·里斯&保罗·韦尼克将悉数回归，与死侍颇有渊源的锁链（Cable）一角将出现在续集中。",
+        "latest":"1",
+        "play_url":[
+            {
+                "1":"http://youku.cdn2-youku.com/share/d1e7b08bdb7783ed4fb10abe92c22ffd",
+                "2":"https://xmr.yezisp.com/jx02.php?url=http://vd3.bdstatic.com/mda-iei7mc06k5ubya3p/hd/mda-iei7mc06k5ubya3p.mp4",
+                "3":"http://youku.cdn-56.com/share/379a7ba015d8bf1c70b8add2c287c6fa",
+                "4":"http://zhjiexi.cn/jx.php?url=http://youku163.zuida-bofang.com/20180518/5803_753b7ec9/index.m3u8"
             }
         ],
         "vip_url":[
