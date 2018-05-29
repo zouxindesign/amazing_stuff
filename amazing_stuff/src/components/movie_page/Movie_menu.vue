@@ -64,12 +64,10 @@
           let all_data = this.movie_menu_img.data;
           all_data.map((item, key, ary) => {
             if (ary[key].type == 'movie') {
-              // console.log(item)
               got_all_moives.push(item);
             }
           })
           this.got_all_moive = got_all_moives.slice(0,3)
-          // console.log(this.got_all_moive)
         }, 0);
       },
       go_to_play(id) {

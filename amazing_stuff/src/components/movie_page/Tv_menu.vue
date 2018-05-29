@@ -3,7 +3,7 @@
     <!-- 卡片 start-->
     <div class=title_tag1 >
         <div class="title_tag1_1">最新电视</div>
-        <div class="title_tag1_2">更多&nbsp;<i class="el-icon-arrow-right"></i></div>
+        <div class="title_tag1_2" @click="go_to_all()">更多&nbsp;<i class="el-icon-arrow-right"></i></div>
       </div>
     <div v-for="item in got_all_tv">
       <div class="movie_card_menu" @click="go_to_play(item.id)">
@@ -54,15 +54,25 @@
 
     },
     methods: {
+      go_to_all(){
+        this.$router.push({
+          path: '/Movie_menu_all',
+          name: 'Movie_menu_all',
+          query: {
+            from: 'tv'
+          }
+        })
+      },
       get_all_tv() {
+        let got_all_tvs = [];
         setTimeout(() => {
           let all_data = this.movie_menu_img.data;
           all_data.map((item, key, ary) => {
             if (ary[key].type == 'tv') {
-              // console.log(item)
-              this.got_all_tv.push(item);
+              got_all_tvs.push(item);
             }
-          })
+          });
+          this.got_all_tv = got_all_tvs.slice(0, 3);
         }, 0);
       },
       go_to_play(id) {
