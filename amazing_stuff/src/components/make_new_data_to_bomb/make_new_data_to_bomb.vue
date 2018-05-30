@@ -13,28 +13,28 @@
             <!-- name -->
             <el-form label-position="left" label-width="80px">
                 <el-form-item label="name：">
-                    <el-input v-model="new_data_temp.name"></el-input>
+                    <el-input v-model="new_data_temp.name" ></el-input>
                 </el-form-item>
             </el-form>
 
             <!-- type -->
             <el-form label-position="left" label-width="80px">
                 <el-form-item label="type：">
-                    <el-input v-model="new_data_temp.type"></el-input>
+                    <el-input v-model="new_data_temp.type" placeholder="movie tv show"></el-input>
                 </el-form-item>
             </el-form>
 
             <!-- genre -->
             <el-form label-position="left" label-width="80px">
                 <el-form-item label="genre：">
-                    <el-input v-model="new_data_temp.genre"></el-input>
+                    <el-input v-model="new_data_temp.genre" placeholder="1动作片 2惊悚片 3 爱情片 4喜剧片 5剧情  6科幻"></el-input>
                 </el-form-item>
             </el-form>
 
             <!-- location -->
             <el-form label-position="left" label-width="80px">
                 <el-form-item label="location：">
-                    <el-input v-model="new_data_temp.location"></el-input>
+                    <el-input v-model="new_data_temp.location" placeholder="哪国片"></el-input>
                 </el-form-item>
             </el-form>
 
@@ -128,7 +128,7 @@
         data() {
             return {
                 new_data_temp: {
-                    id: "1",
+                    id: 0,
                     name: "",
                     type: "",
                     genre: "",
@@ -164,6 +164,7 @@
         },
         methods: {
             onSubmit() {
+                console.log(this.new_data_temp)
                 let allData = Bmob.Object.extend("allData");
                 let alldata = new allData();
                 alldata.save(this.new_data_temp, {
@@ -175,7 +176,7 @@
                         console.log(model)
                     }
                 });
-                this.new_data_temp
+                // this.new_data_temp
             }
         }
     }

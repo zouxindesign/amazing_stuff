@@ -3,14 +3,18 @@
     <searchhead />
     <div class="movie_play" >
       <div class="play_now_font">正在播放：{{current_play_film.name}}</div>
-      <iframe onload="hideImg(this)" ref= "myiframe" id="myiframe" border="0" :src="movie_url" width="100%" height="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0"
+      <iframe  ref= "myiframe" id="myiframe" border="0" :src="movie_url" width="100%" height="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0"
         scrolling="no" vspale="0" noresize="" allowfullscreen="true" allowtransparency="true"></iframe>
     </div>
 
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="在线播放线路" name="first">
-        <span class="check_play_route_button" v-for="item in play_url_ids" style="border: 1px solid #d3d3d3" @click="check_play_url(item.url)">线路{{item.num}}</span>
+        <span class="check_play_route_button" v-for="item in play_url_ids" style="border: 1px solid #d3d3d3" @click="check_play_url(item.url)">
+          <span v-if="item.type == 'movie'">线路 ：{{item.num}}</span>
+          <span v-if="item.type == 'tv' || item.type == 'show'">第{{item.num}}集</span>
+        </span>
       </el-tab-pane>
+
 
       <el-tab-pane label="电影下载地址" name="second">
         <div>百度云：</div>
@@ -76,7 +80,6 @@
     created() {
       this.$store.dispatch('load_movie_menu_img')
       this.get_current_movie();
-      // this.movie_url = this.play_url_ids[0]
     },
     mounted() {
       this.check_play_url();
@@ -85,7 +88,6 @@
       check_play_url(url) {
         setTimeout(() => {
           if (url == '' || url == undefined) {
-            // console.log(JSON.parse(JSON.stringify(this.play_url_ids)))
             this.movie_url = this.play_url_ids[0].url
           } else {
             console.log(url)
@@ -94,7 +96,7 @@
         }, 0);
       },
       handleClick() {
-        // console.log(this.movie_menu_img.data)
+
       },
       get_current_movie() {
         setTimeout(() => {
@@ -105,6 +107,7 @@
               for (item in this.current_play_film.play_url[0]) {
                 let this_url = {
                   "num": item,
+                  "type":this.current_play_film.type,
                   "url": this.current_play_film.play_url[0][item],
                   "baiduyun": this.current_play_film.baiduyun_url[0],
                   "vip_url": this.current_play_film.vip_url[0][item]
