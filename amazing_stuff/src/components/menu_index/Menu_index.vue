@@ -24,6 +24,10 @@
             <i class="iconfont icon-zongyi"></i>
             <span>综艺</span>
           </div>
+          <div @click="go_crack_vip()">
+            <i class="el-icon-star-off"></i>
+            <span>VIP</span>
+          </div>
         </div> 
         <div :is="currentView"></div>
   </div>
@@ -51,7 +55,6 @@ export default {
         child2: 'child2',
         child3: 'child3',
         currentView:'child1',
-        activeIndex: '1',
         img_lists:[]
       };
     },
@@ -82,6 +85,9 @@ export default {
       tab_change(tab_item){
         // console.log(tab_item)
         this.currentView = tab_item;
+      },
+      go_crack_vip(){
+        this.$router.push('/crack_vip')
       }
     }
 }
@@ -140,5 +146,10 @@ export default {
   .iconfont{
     color: #314369;
     font-size: 50px;
+  }
+  .el-icon-star-off{
+    font-size: 50px;
+    line-height: 100px;
+    color: #475669;
   }
 </style>

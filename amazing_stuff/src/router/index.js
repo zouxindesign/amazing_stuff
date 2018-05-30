@@ -6,6 +6,7 @@ import Menu_index from '@/components/menu_index/Menu_index'
 import Movie_play from '@/components/movie_page/Movie_play'
 import needs from '@/components/add_needs/needs'
 import Movie_menu_all from '@/components/movie_page/Movie_menu_all'
+import crack_vip from '@/components/movie_page/crack_vip'
 import make_new_data_to_bomb from '@/components/make_new_data_to_bomb/make_new_data_to_bomb'
 
 Vue.use(Router)
@@ -46,6 +47,11 @@ export default new Router({
       path: '/make_new_data_to_bomb',
       name: 'make_new_data_to_bomb',
       component: make_new_data_to_bomb
+    },
+    {
+      path: '/crack_vip',
+      name: 'crack_vip',
+      component: crack_vip
     }
   ]
 })
