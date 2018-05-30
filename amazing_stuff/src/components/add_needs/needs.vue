@@ -28,7 +28,9 @@
         let needfilms = new needFilms();
         needfilms.save(this.need_film, {
           success: function (needfilms) {
-            console.log(needfilms)
+            alert('求片成功，我会尽快更新');
+            this.need_film.name=''
+
           },
           error: function (model, error) {
             console.log(error)

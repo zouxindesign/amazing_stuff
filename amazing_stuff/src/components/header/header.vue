@@ -105,15 +105,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.search_head{
-  /* margin:12px !important; */
-}
 .el-autocomplete{
-  height: 60px;
-  line-height: 60px;
+  height: 80px;
+  line-height: 80px;
   width: 100%;
+  margin-bottom: 20px;
 }
 .el-input input{
-  height: 60px;
+  height: 80px;
 }
 </style>
